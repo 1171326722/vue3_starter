@@ -1,10 +1,14 @@
-<script setup lang="ts">
-export default {
-    setup() {},
-};
-</script>
+<template>
+    <div>用户管理</div>
+</template>
 
-<template>123</template>
+<script setup lang="ts">
+import { ref } from "vue";
+defineProps<{ msg: string }>();
+
+
+const count = ref(0);
+</script>
 
 <style scoped>
 a {
