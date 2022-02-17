@@ -1,11 +1,9 @@
 <template>
-    <div>文章管理</div>
+    <div>{{$t('addressee')}}</div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-defineProps<{ msg: string }>();
-
 const count = ref(0);
 </script>
 

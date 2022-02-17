@@ -1,7 +1,14 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router/config';
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router/config'
+import Antd from 'ant-design-vue'
+import store from './store/index'
+import i18n from './locale/index'
+import 'ant-design-vue/dist/antd.css'
 
-createApp(App).use(Antd).use(router).mount('#app');
+const app = createApp(App)
+app.use(Antd)
+app.use(router)
+app.use(store)
+app.use(i18n)
+app.mount('#app')
