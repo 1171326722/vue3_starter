@@ -1,19 +1,20 @@
 import { defineStore } from 'pinia'
-import { DefaultState, Menu } from '../type'
+import { UserState, Menu } from '../type'
 
-const defaultState: DefaultState = {
+const defaultState: UserState = {
 	menuList: [
 		{
-			name: '用户管理',
-			path: '/userManage',
-			icon: 'icon1',
-			children: [{ name: '子菜单1', path: '/userManage/item1', icon: 'icon1' }]
+			name: '主页',
+			path: '/dashboard',
+			icon: 'icon2'
 		},
 		{
-			name: '文章管理',
-			path: '/articleManage',
-			icon: 'icon2',
-			children: [{ name: '子菜单2', path: '/articleManage/item2', icon: 'icon2' }]
+			name: '管理',
+			icon: 'icon1',
+			children: [
+				{ name: '用户管理', path: '/userManage', icon: 'icon1' },
+				{ name: '文章管理', path: '/articleManage', icon: 'icon2' }
+			]
 		}
 	]
 }

@@ -1,5 +1,5 @@
 <template>
-    <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline" @click="clickMenuItem">
+    <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
         <template v-for="(element, num) in menuList" :key="element.name + num">
             <MyMenuItem :menuInfo="element" />
         </template>
@@ -9,14 +9,15 @@
 import { defineComponent, ref } from 'vue'
 import MyMenuItem from './MyMenuItem.vue'
 import { useUserStore } from '@/store/modules/user'
+import { useTabStore } from '@/store/modules/tab'
 import { useRouter } from 'vue-router'
+
 const router = useRouter()
 const userStore = useUserStore()
+const tabStore = useTabStore()
+
 const menuList = userStore.menuList
 
-const clickMenuItem = ({ key }) => {
-    router.push({ name: key })
-}
 </script>
 <style>
 #components-layout-demo-custom-trigger .trigger {

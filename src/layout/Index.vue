@@ -5,17 +5,12 @@
             <left-menu />
         </a-layout-sider>
         <a-layout>
-            <a-layout-header style="background: #001529; padding: 0">
-                <menu-unfold-outlined
-                    v-if="collapsed"
-                    class="trigger"
-                    @click="() => (collapsed = !collapsed)"
-                />
-                <menu-fold-outlined
-                    v-else
-                    class="trigger"
-                    @click="() => (collapsed = !collapsed)"
-                />
+            <a-layout-header class="my_header" style="background: #001529; padding: 0">
+                <TopTab />
+                <a-select default-value="zh_CN" style="width: 120px" @change="handleChange">
+                    <a-select-option value="en-US"> English </a-select-option>
+                    <a-select-option value="zh-CN"> 中文 </a-select-option>
+                </a-select>
             </a-layout-header>
             <a-layout-content
                 :style="{
@@ -31,9 +26,19 @@
 </template>
 <script setup lang="ts">
 import LeftMenu from './leftMenu/Index.vue'
+import i18n from '@/locale/index'
+import { ref, getCurrentInstance } from 'vue'
+import TopTab from './topTab/Index.vue'
+
+const { proxy } = getCurrentInstance()
+
 const clickMenu = (menu) => {
     this.$router.push(menu.path)
 }
+const handleChange = (value) => {
+    proxy.$i18n.locale = value
+}
+const language = ref(18)
 </script>
 
 
@@ -46,26 +51,8 @@ const clickMenu = (menu) => {
     color: white;
     font-size: 20px;
 }
-
-#components-layout-demo-custom-trigger .trigger {
-    font-size: 18px;
-    line-height: 64px;
-    padding: 0 24px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-#components-layout-demo-custom-trigger .trigger:hover {
-    color: #1890ff;
-}
-
-#components-layout-demo-custom-trigger .logo {
-    height: 32px;
-    background: rgba(255, 255, 255, 0.3);
-    margin: 16px;
-}
-
-.site-layout .site-layout-background {
-    background: #fff;
+.my_header {
+    display: flex;
+    justify-content: space-between;
 }
 </style>

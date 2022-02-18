@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Layout from '../layout/Index.vue'
 import UserManage from '../pages/userManage/Index.vue'
+import Dashboard from '../pages/dashboard/Index.vue'
 import ArticleManage from '../pages/articleManage/Index.vue'
 import Login from '../pages/login/Index.vue'
 
@@ -13,28 +14,26 @@ const routes = [
 		component: Layout,
 		children: [
 			{
-				path: '/userManage',
-				name: '/userManage',
+				path: '/dashboard',
+				name: 'dashboard',
 				meta: {
-					title: '用户管理'
+					title: '主页'
 				},
-				component: UserManage,
-				children: [
-					{
-						path: '/userManage/item1',
-						name: '/userManage/item1',
-						meta: {
-							title: '菜单1'
-						},
-						component: UserManage
-					}
-				]
+				component: Dashboard
+			},
+			{
+				path: '/userManage',
+				name: 'userManage',
+				meta: {
+					title: '权限管理'
+				},
+				component: UserManage
 			},
 			{
 				path: '/articleManage',
-				name: '/articleManage/item2',
+				name: 'articleManage',
 				meta: {
-					title: '菜单2'
+					title: '文章管理'
 				},
 				component: ArticleManage
 			}

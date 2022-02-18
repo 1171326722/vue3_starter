@@ -11,5 +11,4 @@ const i18n = createI18n({
 	locale: 'zh-CN',
 	messages: resources
 })
-
 export default i18n
