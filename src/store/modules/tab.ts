@@ -27,7 +27,6 @@ export const useTabStore = defineStore({
 			) {
 				this.tabList.push(tab)
 			}
-			console.log(tab)
 			this.activeKey = tab.path
 		},
 		closeTab(path: string) {
